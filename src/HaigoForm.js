@@ -1,11 +1,12 @@
+
 import { useState } from "react";
 
 export default function HaigoForm() {
   const [mainIngredients, setMainIngredients] = useState(Array(8).fill({ name: "", amount: "", note: "" }));
   const [subIngredients, setSubIngredients] = useState(Array(3).fill({ name: "", amount: "", note: "" }));
   const [additives, setAdditives] = useState(Array(3).fill({ name: "", amount: "", note: "" }));
-  const [hydrationRate, setHydrationRate] = useState(30);
-  const [baume, setBaume] = useState(8);
+  const [hydrationRate, setHydrationRate] = useState(30); // 加水率（％）
+  const [baume, setBaume] = useState(8); // ボーメ度
 
   const totalFlour = mainIngredients.reduce((sum, ing) => sum + Number(ing.amount || 0), 0);
   const saltWaterWeight = totalFlour * (hydrationRate / 100);
@@ -24,7 +25,7 @@ export default function HaigoForm() {
         </label>
       </div>
 
-      <h1 className="text-2xl font-bold">配合表 入力UI（プロトタイプ）</h1>
+      <h1 className="text-2xl font-bold">配合表入力UI（プロトタイプ）</h1>
 
       <section>
         <h2 className="text-xl font-semibold">主原料（8行）</h2>
@@ -90,10 +91,10 @@ export default function HaigoForm() {
           </label>
         </div>
 
-        <div className="mt-4 p-4 bg-gray-100 rounded flex gap-6">
-          <p>加水重量: <strong>{(saltWaterWeight).toFixed(3)}</strong> kg</p>
+        <div className="mt-4 p-4 bg-gray-100 rounded grid grid-cols-3 gap-4">
+          <p>加水重量: <strong>{saltWaterWeight.toFixed(3)}</strong> kg</p>
           <p>加水容量: <strong>{(saltWaterWeight / 1.044).toFixed(3)}</strong> L</p>
-          <p>食塩重量: <strong>{(saltWeight).toFixed(3)}</strong> kg</p>
+          <p>食塩重量: <strong>{saltWeight.toFixed(3)}</strong> kg</p>
         </div>
       </section>
 
