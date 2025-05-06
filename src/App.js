@@ -1,4 +1,4 @@
-import HaigoForm from "./haigoform";
+import HaigoForm from "./HaigoForm";
 
 function App() {
   return <HaigoForm />;
