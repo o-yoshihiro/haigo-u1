@@ -1,2 +1,3 @@
-# haigo-u1
-配合入力UI(React)
+# Haigo UI
+
+配合表入力用Reactアプリ（プロトタイプ）です。
